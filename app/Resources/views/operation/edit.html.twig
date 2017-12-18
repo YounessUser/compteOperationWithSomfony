@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Operation edit</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input class="btn btn-primary" type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+
+    <br>
+     <a class="btn btn-link" href="{{ path('op_index') }}"><i class="fa fa-chevron-left"></i> Back to the list</a>
+
+{% endblock %}

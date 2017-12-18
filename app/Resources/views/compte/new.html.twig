@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Compte creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input class="btn btn-primary" type="submit" value="Create" />
+    {{ form_end(form) }}
+
+
+            <a class="btn btn-link" href="{{ path('cp_index') }}"><i class="fa fa-chevron-left"></i> Back to the list</a>
+
+{% endblock %}

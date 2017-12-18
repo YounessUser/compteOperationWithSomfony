@@ -1,13 +1,36 @@
+{% use "bootstrap_base_layout.html.twig" %}
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+            <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.min.css') }}">
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Compte<span style="color: #2aabd2">Operation</span></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="{{ path('cp_index') }}">Compte</a></li>
+                    <li><a href="{{ path('op_index') }}">Operation</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+        {% block javascripts %}
+            <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+            <script src="{{ asset('js/main.js') }}"></script>
+        {% endblock %}
     </body>
 </html>

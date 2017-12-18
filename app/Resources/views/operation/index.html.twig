@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Operations list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Montant</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for operation in operations %}
+            <tr>
+                <td><a href="{{ path('op_show', { 'id': operation.id }) }}">{{ operation.id }}</a></td>
+                <td>{{ operation.montant }}</td>
+                <td>{% if operation.type %}Yes{% else %}No{% endif %}</td>
+                <td>
+
+                    <a class="btn btn-info" href="{{ path('op_show', { 'id': operation.id }) }}"><i class="fa fa-info"></i> show</a>
+
+                    <a class="btn btn-default" href="{{ path('op_edit', { 'id': operation.id }) }}"><i class="fa fa-edit"></i> edit</a>
+
+                    <a class="btn btn-danger" href="{{ path('op_delete', { 'id': operation.id }) }}"><i class="fa fa-warning"></i> delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <a class="btn btn-primary" href="{{ path('op_new') }}"><i class="fa fa-plus"></i> Create a new operation</a>
+
+{% endblock %}

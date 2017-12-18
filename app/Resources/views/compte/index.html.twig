@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Comptes list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Solde</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for compte in comptes %}
+            <tr>
+                <td><a href="{{ path('cp_show', { 'id': compte.id }) }}">{{ compte.id }}</a></td>
+                <td>{{ compte.solde }}</td>
+                <td>
+
+                    <a class="btn btn-info" href="{{ path('cp_show', { 'id': compte.id }) }}"><i class="fa fa-info"></i> show</a>
+
+                    <a class="btn btn-default" href="{{ path('cp_edit', { 'id': compte.id }) }}"><i class="fa fa-edit"></i> edit</a>
+
+                    <a class="btn btn-danger" href="{{ path('cp_delete', { 'id': compte.id }) }}"><i class="fa fa-warning"></i> delete</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('cp_new') }}"><i class="fa fa-plus"></i> Create a new compte</a>
+
+{% endblock %}
